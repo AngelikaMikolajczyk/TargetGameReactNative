@@ -9,6 +9,7 @@ import { GameOverScreen } from './screens/GameOverScreen';
 // import AppLoading from 'expo-app-loading';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -66,13 +67,16 @@ export default function App() {
   }
 
   return (
-    <LinearGradient style={styles.container} colors={[Colors.primary3, Colors.secondary1]}>
-      <ImageBackground source={require('./assets/images/background.png')} resizeMode='cover' style={styles.container} imageStyle={styles.backgroundImage}>
-       <SafeAreaView style={styles.container}>
-        {screen}
-       </SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+    <>
+      <StatusBar style='light'/>
+      <LinearGradient style={styles.container} colors={[Colors.primary3, Colors.secondary1]}>
+        <ImageBackground source={require('./assets/images/background.png')} resizeMode='cover' style={styles.container} imageStyle={styles.backgroundImage}>
+        <SafeAreaView style={styles.container}>
+          {screen}
+        </SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
